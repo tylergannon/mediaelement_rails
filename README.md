@@ -22,14 +22,14 @@ Load the Mediaelement Javascript in your `application.js`:
 
 ### And CSS ###
 
-Load the Mediaelement CSS in your `application.css`:
+Load the Mediaelement CSS in your `application.scss`:
 
-``` css
-/*
- *= require mediaelement_rails
- * and optionally:
- *= require mediaelement_rails/mejs-skins
- */
+``` scss
+
+ @import "mediaelement_rails/mediaelementplayer";
+ /* and optionally:   */
+ @import "mediaelement_rails/mejs-skins";
+
 ```
 
 ## Wanna use MediaElement (not the player) only? ##

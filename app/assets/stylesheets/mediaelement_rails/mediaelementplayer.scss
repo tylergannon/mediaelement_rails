@@ -1,11 +1,20 @@
+$bigplay-svg: image-url('mediaelement_rails/bigplay.svg');
+$background-img: image-url('mediaelement_rails/background.png');
+$loading-gif: image-url('mediaelement_rails/loading.gif');
+$controls-svg: image-url('mediaelement_rails/controls.svg');
+$controls-png: image-url('mediaelement_rails/controls.png');
+$jumpforward-png: image-url('mediaelement_rails/jumpforward.png');
+$skipback-png: image-url('mediaelement_rails/skipback.png');
+
 .mejs-offscreen{
-/* Accessibility: hide screen reader texts (and prefer "top" for RTL languages). */
+/* Accessibility: hide screen reader texts (and prefer "top" for RTL languages).  Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-how/ */
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 - no likey commas */
+	clip: rect(1px, 1px, 1px, 1px); /* IE8-IE11 - we likey commas, no support for clip-path */
+	clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
 	position: absolute !important;
-	top: -10000px;
-	left: -10000px;
-	overflow: hidden;
-	width: 1px;
 	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }
 
 .mejs-container {
@@ -17,8 +26,8 @@
 	text-indent: 0;
 }
 
-.mejs-container:focus { 
-	outline: none; 
+.mejs-container:focus {
+	outline: none;
 }
 
 .me-plugin {
@@ -108,11 +117,11 @@
 	width: 100px;
 	height: 100px;
 	margin: -50px 0 0 -50px;
-	background: url(<%= asset_path "mediaelement_rails/bigplay.svg" %>) no-repeat;
+	background: $bigplay-svg no-repeat;
 }
 
 .no-svg .mejs-overlay-button {
-	background-image: url(<%= asset_path "mediaelement_rails/bigplay.png" %>);
+	background-image: $bigplay-svg;
 }
 
 .mejs-overlay:hover .mejs-overlay-button {
@@ -127,7 +136,7 @@
 	height: 80px;
 	margin: -40px 0 0 -40px;
 	background: #333;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(0, 0, 0, 0.9);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(50,50,50,0.9)), to(rgba(0,0,0,0.9)));
 	background: -webkit-linear-gradient(top, rgba(50,50,50,0.9), rgba(0,0,0,0.9));
@@ -141,7 +150,7 @@
 	display: block;
 	width: 80px;
 	height: 80px;
-	background: transparent url(<%= asset_path "mediaelement_rails/loading.gif" %>) 50% 50% no-repeat;
+	background: transparent $loading-gif 50% 50% no-repeat;
 }
 
 /* End: LAYERS */
@@ -154,7 +163,7 @@
 	padding: 0;
 	bottom: 0;
 	left: 0;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(0, 0, 0, 0.7);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(50,50,50,0.7)), to(rgba(0,0,0,0.7)));
 	background: -webkit-linear-gradient(top, rgba(50,50,50,0.7), rgba(0,0,0,0.7));
@@ -192,11 +201,11 @@
 	height: 16px;
 	width: 16px;
 	border: 0;
-	background: transparent url(<%= asset_path "mediaelement_rails/controls.svg" %>) no-repeat;
+	background: transparent $controls-svg no-repeat;
 }
 
 .no-svg .mejs-controls .mejs-button button {
-	background-image: url(<%= asset_path "mediaelement_rails/controls.png" %>);
+	background-image: $controls-png;
 }
 
 	/* :focus for accessibility */
@@ -425,7 +434,7 @@
 	display: none;
 	height: 115px;
 	width: 25px;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(50, 50, 50, 0.7);
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
@@ -561,7 +570,7 @@
 	right: -51px;
 	width: 85px;
 	height: 100px;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(50,50,50,0.7);
 	border: solid 1px transparent;
 	padding: 10px 10px 0 10px;
@@ -571,11 +580,9 @@
 	border-radius: 0;
 }
 
-/*
 .mejs-controls .mejs-captions-button:hover  .mejs-captions-selector {
 	visibility: visible;
 }
-*/
 
 .mejs-controls .mejs-captions-button .mejs-captions-selector ul {
 	margin: 0;
@@ -717,7 +724,7 @@
 
 .mejs-captions-text {
 	padding: 3px 5px;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(20, 20, 20, 0.5);
 	white-space: pre-wrap;
 }
@@ -814,7 +821,7 @@
 	right: -10px;
 	width: 130px;
 	height: 100px;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(50,50,50,0.7);
 	border: solid 1px transparent;
 	padding: 10px;
@@ -864,7 +871,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(50,50,50,0.7);
 	z-index: 1000;
 	overflow: hidden;
@@ -877,7 +884,7 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(50,50,50,0.7);
 	color: #fff;
 	padding: 4px;
@@ -908,7 +915,7 @@ div.mejs-speed-button {
 	left: -10px;
 	width: 60px;
 	height: 100px;
-	background: url(<%= asset_path "mediaelement_rails/background.png" %>);
+	background: $background-img;
 	background: rgba(50, 50, 50, 0.7);
 	border: solid 1px transparent;
 	padding: 0;
@@ -972,7 +979,7 @@ div.mejs-speed-button {
 /* Start: Jump Forward */
 
 .mejs-controls .mejs-button.mejs-jump-forward-button {
-	background: transparent url(<%= asset_path "mediaelement_rails/jumpforward.png" %>) no-repeat;
+	background: transparent $jumpforward-png no-repeat;
 	background-position: 3px 3px;
 }
 .mejs-controls .mejs-button.mejs-jump-forward-button button {
@@ -987,7 +994,7 @@ div.mejs-speed-button {
 /* Start: Skip Back */
 
 .mejs-controls .mejs-button.mejs-skip-back-button {
-	background: transparent url(<%= asset_path "mediaelement_rails/skipback.png" %>) no-repeat;
+	background: transparent $skipback-png no-repeat;
 	background-position: 3px 3px;
 }
 .mejs-controls .mejs-button.mejs-skip-back-button button {
@@ -998,4 +1005,3 @@ div.mejs-speed-button {
 }
 
 /* End: Skip Back */
-
